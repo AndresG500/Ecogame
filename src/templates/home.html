@@ -1,0 +1,30 @@
+{% extends './about.html' %}
+
+{% block title %}
+Inicio
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{url_for('static', filename='Css/home.css')}}">
+{% endblock %}
+
+{% block content %}
+<section class="container">
+    <div class="fondo-ladrillos">
+        <img src="../static/Img/imagenlasdrillo.png" alt="Fondo" class="fondo">
+    </div>
+
+    <div class="acces-container">
+        <div class="acces-box">
+            <img src="../static/Img/logo.png" alt="Logo" class="logo">
+            <div class="boton">
+                <a href="/formlogin">Iniciar Sesion</a>
+            </div>
+            <div class="boton">
+                <a href="/formregister">Registrarse</a>
+            </div>
+        </div>
+    </div>
+
+</section>
+{% endblock %}

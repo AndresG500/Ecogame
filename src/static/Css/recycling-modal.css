@@ -1,0 +1,180 @@
+/* ============================================
+   FASE 1: INSTRUCCIÓN INICIAL
+   ============================================ */
+
+.recycling-instruction {
+    display: none;
+    text-align: center;
+    padding: 30px;
+}
+
+.recycling-instruction.show {
+    display: block;
+    animation: slideIn 0.3s ease;
+}
+
+.instruction-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: bounce 1s infinite;
+}
+
+.instruction-message h3 {
+    color: #047170;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.instruction-message p {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.btn-ready {
+    background: linear-gradient(135deg, #047170 0%, #369e97 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-ready:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(4, 113, 112, 0.4);
+}
+
+
+.recycling-analyzing {
+    display: none;
+    text-align: center;
+    padding: 40px;
+}
+
+.recycling-analyzing.show {
+    display: block;
+    animation: slideIn 0.3s ease;
+}
+
+.analyzing-spinner {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 25px;
+    border: 5px solid #e0f2fe;
+    border-top: 5px solid #047170;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.analyzing-message h3 {
+    color: #047170;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.analyzing-message p {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.analyzing-status {
+    background: #f0f9ff;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.analyzing-status p {
+    color: #047170;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.analyzing-status .status-value {
+    font-weight: bold;
+    color: #369e97;
+}
+
+/* ============================================
+   FASE 3: MENSAJE DE ÉXITO
+   ============================================ */
+
+.recycling-success {
+    display: none;
+    text-align: center;
+    padding: 30px;
+}
+
+.recycling-success.show {
+    display: block;
+    animation: slideIn 0.3s ease;
+}
+
+.success-icon {
+    font-size: 80px;
+    color: #10b981;
+    margin-bottom: 20px;
+    animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.success-message h3 {
+    color: #047170;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.success-material {
+    font-size: 24px;
+    font-weight: bold;
+    color: #047170;
+    margin: 15px 0;
+    padding: 15px;
+    background: #f0f9ff;
+    border-radius: 10px;
+}
+
+.success-points {
+    font-size: 48px;
+    font-weight: bold;
+    color: #FFD700;
+    margin: 20px 0;
+}
+
+.success-message p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.btn-continue {
+    background: #047170;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-continue:hover {
+    background: #035a59;
+    transform: scale(1.05);
+}

@@ -1,0 +1,250 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.cuerpo-Login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 110vh;
+  padding: 20px;
+  background-color: #f7fbfc;
+}
+
+.forms-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  min-height: 440px;
+}
+
+/* Ambos contenedores ahora usan position absolute para superponerse */
+.container-login,
+.container-register {
+  background: #f7fbfc;
+  height: auto;
+  min-height: 400px;
+  width: 100%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 40px 20px;
+  border: 3px solid rgba(139, 69, 19, 0.2);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Clase para ocultar formularios con animación */
+.esconder {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.95);
+}
+
+.container-form,
+.container-form-register {
+  width: 100%;
+}
+
+.container-form form,
+.container-form-register form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-form h2,
+.container-form-register h2 {
+  font-size: 30px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.container-input,
+.container-input-register {
+  width: 100%;
+  max-width: 300px;
+  height: 50px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 0 20px;
+  background-color: #eeeeee;
+  border-radius: 10px;
+  position: relative;
+}
+
+.container-input input,
+.container-input-register input {
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  font-size: 14px;
+}
+
+.container-input i,
+.container-input-register i {
+  color: #369e97;
+  cursor: pointer;
+  min-width: 20px;
+}
+
+.olvidar,
+.olvidar-register {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.olvidar a,
+.olvidar-register a {
+  color: #369e97;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.olvidar a:hover,
+.olvidar-register a:hover {
+  color: #2a7a74;
+  text-decoration: underline;
+}
+
+.enviar,
+.enviar-register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.enviar input,
+.enviar-register input {
+  width: 150px;
+  height: 45px;
+  border: none;
+  border-radius: 10px;
+  background-color: #369e97;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.enviar input:hover,
+.enviar-register input:hover {
+  background-color: #2a7a74;
+  transform: translateY(-2px);
+}
+
+.enviar input:active,
+.enviar-register input:active {
+  transform: translateY(0);
+}
+
+/* Nuevo estilo para el enlace de cambio de formulario */
+.toggle-form {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.toggle-form p {
+  color: #666;
+}
+
+.toggle-form a {
+  color: #369e97;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.toggle-form a:hover {
+  color: #2a7a74;
+  text-decoration: underline;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+  .cuerpo-Login {
+    padding: 15px;
+  }
+
+  .forms-wrapper {
+    max-width: 100%;
+  }
+
+  .container-login,
+  .container-register {
+    padding: 30px 15px;
+    min-height: 400px;
+  }
+
+  .container-form h2,
+  .container-form-register h2 {
+    font-size: 26px;
+    margin-bottom: 25px;
+  }
+
+  .container-input,
+  .container-input-register {
+    max-width: 280px;
+    height: 45px;
+    margin-bottom: 15px;
+  }
+
+  .enviar input,
+  .enviar-register input {
+    width: 140px;
+    height: 42px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-form h2,
+  .container-form-register h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .container-input,
+  .container-input-register {
+    max-width: 100%;
+    height: 42px;
+    padding: 0 15px;
+  }
+
+  .container-input input,
+  .container-input-register input {
+    font-size: 13px;
+  }
+
+  .enviar input,
+  .enviar-register input {
+    width: 130px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .olvidar,
+  .olvidar-register,
+  .toggle-form {
+    font-size: 13px;
+  }
+}
+

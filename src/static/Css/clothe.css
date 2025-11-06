@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    background-color: #f0f4f3;
+}
+
+h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.Ropa{
+    width: 80px;
+    height: 80px;
+    transform: translateY(5px);
+}
+
+.container-clothe{
+    width: 400px;
+    max-height: 500px;
+    border: 2px solid red;
+    border-radius: 15px;
+}
+
+.container-image {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 10px;
+    margin-top: 20px;
+    padding-bottom: 40px;
+}
+
+.item-clothe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+span{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+button{
+    color: black;
+    font-weight: bold;
+    background-color: #369e97;
+    width: 90px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border: 2px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+}

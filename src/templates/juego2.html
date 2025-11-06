@@ -1,0 +1,113 @@
+{% extends './about.html' %}
+
+{% block title %} Piedra, papel o tijera {% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{url_for('static', filename='Css/juego2.css')}}">
+{% endblock %}
+
+{% block content %}
+
+<header>
+    <div class="container-header">
+        <div class="container-back">
+            <a href="/ecogame">
+                <button id="backButton">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Volver
+                </button>
+            </a>
+        </div>
+
+        <div class="container-points">
+            <div class="points-display">
+                <i class="fa-solid fa-star"></i>
+                <span id="pointsCounter">0</span>
+            </div>
+        </div>
+
+        <div class="container-lives">
+            <div class="lives-display">
+                <i class="fa-solid fa-heart"></i>
+                <span id="livesCounter">3</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="wrapper">
+
+        <h1>Piedra, Papel o Tijera</h1>
+
+        <div class="game-info">
+            <div class="session-points">
+                <i class="fa-solid fa-trophy"></i>
+                <span>Sesión: <strong id="sessionPoints">0</strong> pts</span>
+            </div>
+        </div>
+
+        <div class="result">
+            <div class="player-side">
+                <p class="player-label">Máquina</p>
+                <figure>
+                    <img id="machine-img" src="{{url_for('static', filename='Img/rock.svg')}}" alt="">
+                </figure>
+            </div>
+
+            <div class="player-side">
+                <p class="player-label">Tú</p>
+                <figure>
+                    <img id="user-img" src="{{url_for('static', filename='Img/rock.svg')}}" alt="">
+                </figure>
+            </div>
+        </div>
+
+        <div class="start-text" id="start-text">
+            <h3 style="font-weight: bold;">Elige una opción</h3>
+        </div>
+
+        <div class="buttons" id="gameButtons">
+            <button id="piedra" type="button">
+                <img src="{{url_for('static', filename='Img/rock.svg')}}" alt="">
+            </button>
+
+            <button id="papel" type="button">
+                <img src="{{url_for('static', filename='Img/paper.svg')}}" alt="">
+            </button>
+
+            <button id="tijera" type="button">
+                <img src="{{url_for('static', filename='Img/scissors.svg')}}" alt="">
+            </button>
+        </div>
+
+    </div>
+
+    <div id="gameOverModal" class="game-over-modal">
+        <div class="game-over-content">
+            <i class="fa-solid fa-heart-crack game-over-icon"></i>
+            <h2>¡Game Over!</h2>
+            <p>Has perdido todos tus intentos</p>
+            <div class="final-stats">
+                <p>Puntos ganados en esta sesión:</p>
+                <h3 id="finalSessionPoints">0</h3>
+            </div>
+            <div class="game-over-buttons">
+                <button id="playAgainBtn" class="btn-play-again">
+                    <i class="fa-solid fa-rotate-right"></i>
+                    Jugar de nuevo
+                </button>
+                <a href="/ecogame">
+                    <button class="btn-go-home">
+                        <i class="fa-solid fa-house"></i>
+                        Ir al inicio
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{url_for('static', filename='Js/juego2.js')}}"></script>
+
+{% endblock %}

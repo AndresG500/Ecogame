@@ -1,0 +1,91 @@
+{% extends './about.html' %}
+
+{% block title %}Encuentra la Caneca{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{url_for('static', filename='Css/inicio.css')}}">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="{{url_for('static', filename='Css/recycling-modal.css')}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% endblock %}
+
+{% block content %}
+<header>
+    <div class="container-header">
+        <div class="container-back">
+            <a href="/ecogame">
+                <button id="backButton">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Volver
+                </button>
+            </a>
+        </div>
+
+        <div class="container-points">
+            <div class="points-display">
+                <i class="fa-solid fa-star"></i>
+                <span id="pointsCounter">0</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="container">
+        <figure>
+            <img src="../static/Img/logo.png" alt="logo" class="logo">
+        </figure>
+        <p>Encuentra la caneca más cercana</p>
+        <div class="status" id="status">Buscando tu ubicación...</div>
+    </section>
+
+    <div class="info-panel">
+        <div class="stats-grid">
+            <div class="stat">
+                <div class="stat-value" id="user-lat">--</div>
+                <div class="stat-label">Tu Latitud</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="user-lon">--</div>
+                <div class="stat-label">Tu Longitud</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="distance">--</div>
+                <div class="stat-label">Distancia (metros)</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="map-container">
+        <h3 class="map-title">📍 Mapa de Ubicaciones</h3>
+        <div id="map"></div>
+        <div class="map-controls">
+            <button class="btn" onclick="centerOnESP32()">
+                <i class="fa-solid fa-bullseye"></i> Ver Caneca
+            </button>
+            <button class="btn" onclick="centerOnUser()">
+                <i class="fa-solid fa-location-dot"></i> Ver Mi Ubicación
+            </button>
+        </div>
+    </div>
+
+</main>
+
+<script>
+    const ESP32_DATA = {{ esp32_coords | tojson | safe }};
+    const ESP32_LAT = ESP32_DATA.latitude;
+    const ESP32_LON = ESP32_DATA.longitude;
+    const ESP32_STATUS = '{{ esp32_status }}';
+    console.log('📍 Coordenadas ESP32:', ESP32_LAT, ESP32_LON);
+    console.log('📡 Estado ESP32:', ESP32_STATUS);
+    {% if esp32_status == 'ok' %}
+    console.log('🌐 IP ESP32:', '{{ esp32_coords.esp32_ip }}');
+    {% endif %}
+    console.log('═══════════════════════════════════════════\n');
+</script>
+
+<script src="{{url_for('static', filename='Js/aparecer.js')}}"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="{{url_for('static', filename='Js/mapa.js')}}"></script>
+
+{% endblock %}

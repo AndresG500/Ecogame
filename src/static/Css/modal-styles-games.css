@@ -1,0 +1,146 @@
+.modal-games {
+    max-width: 500px;
+}
+
+.container-games {
+    width: 100%;
+}
+
+.container-games h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #047170;
+    font-size: 28px;
+}
+
+.container-games-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 10px;
+    justify-items: center;
+}
+
+.item-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    width: 80%;
+    max-width: 180px;
+}
+
+.game-icon-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+}
+
+.game-image {
+    width: 200px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 8px;
+    transform: translateX(-50px);
+}
+
+
+.game-name {
+    font-weight: bold;
+    font-size: 16px;
+    color: #047170;
+    text-align: center;
+    margin: 10px 0 8px 0;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-description {
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    margin-bottom: 12px;
+    min-height: 36px;
+    line-height: 1.4;
+    font-weight: bold;
+}
+
+.btn-play {
+    color: white;
+    font-weight: bold;
+    background-color: #047170;
+    width: 100px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.btn-play:hover {
+    background-color: #035a59;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(4, 113, 112, 0.4);
+}
+
+.btn-play:active {
+    transform: scale(0.98);
+}
+
+.btn-play i {
+    font-size: 12px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .modal-content {
+        width: 95%;
+        padding: 15px;
+    }
+    
+    .modal-content .container-image {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .modal-content h2 {
+        font-size: 24px;
+    }
+    
+    .container-games-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .item-game {
+        max-width: 100%;
+    }
+    
+    .game-name {
+        font-size: 15px;
+        min-height: 36px;
+    }
+    
+    .game-description {
+        font-size: 11px;
+        min-height: 32px;
+    }
+}

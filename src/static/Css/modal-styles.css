@@ -1,0 +1,288 @@
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Contenido del modal */
+.modal-content {
+    position: relative;
+    background-color: #f0f4f3;
+    border-radius: 20px;
+    padding: 20px;
+    max-width: 450px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Botón de cerrar (X) */
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    background-color: #ff4757;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(255, 71, 87, 0.3);
+}
+
+.modal-close:hover {
+    background-color: #ff3838;
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 4px 12px rgba(255, 71, 87, 0.5);
+}
+
+/* Estilos del contenedor de la tienda en el modal */
+.modal-content .container-clothe {
+    width: 100%;
+    max-height: none;
+    border: none;
+    border-radius: 0;
+}
+
+.modal-content h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #047170;
+    font-size: 28px;
+}
+
+.modal-content .container-image {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 10px;
+    justify-items: center;
+}
+
+.modal-content .item-clothe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 180px;
+}
+
+.modal-content .item-clothe:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.modal-content .Ropa {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 12px;
+    object-fit: contain;
+}
+
+.modal-content .star {
+    margin-bottom: 8px;
+}
+
+.modal-content span {
+    font-weight: bold;
+    font-size: 18px;
+    color: #047170;
+    margin: 8px 0;
+}
+
+.modal-content button.btn-comprar {
+    color: white;
+    font-weight: bold;
+    background-color: #369e97;
+    width: 100px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.modal-content button.btn-comprar:hover {
+    background-color: #047170;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(54, 158, 151, 0.4);
+}
+
+.modal-content button.btn-comprar:active {
+    transform: scale(0.98);
+}
+
+/* Scroll personalizado para el modal */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: #369e97;
+    border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: #047170;
+}
+
+/* Botón deshabilitado */
+.modal-content button.btn-comprar.btn-disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.modal-content button.btn-comprar.btn-disabled:hover {
+    background-color: #ccc;
+    transform: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Notificaciones */
+.notification {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background-color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 10000;
+    min-width: 280px;
+    transform: translateX(400px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.notification i {
+    font-size: 24px;
+}
+
+.notification span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.notification-success {
+    border-left: 4px solid #4caf50;
+}
+
+.notification-success i {
+    color: #4caf50;
+}
+
+.notification-error {
+    border-left: 4px solid #f44336;
+}
+
+.notification-error i {
+    color: #f44336;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .modal-content {
+        width: 95%;
+        padding: 15px;
+    }
+    
+    .modal-content .container-image {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .modal-content h2 {
+        font-size: 24px;
+    }
+
+    .modal-content .item-clothe {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    .modal-content .Ropa {
+        width: 100px;
+        height: 100px;
+    }
+
+    .modal-content button.btn-comprar {
+        width: 90px;
+        height: 32px;
+        font-size: 13px;
+    }
+
+    .notification {
+        right: 10px;
+        left: 10px;
+        min-width: auto;
+    }
+}

@@ -1,0 +1,111 @@
+{% extends './about.html' %}
+
+{% block title %} EcoGame{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{url_for('static', filename='Css/pagina.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='Css/modal-styles.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='Css/modal-styles-games.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='Css/inventory-modal.css')}}">
+{% endblock %}
+
+{% block content %}
+<header>
+    <div class="container-header">
+        <div class="container-user">
+            <button id="userButton">
+                <i class="fa-solid fa-user"></i>
+                {{ user_name }}
+            </button>
+        </div>
+
+        <div class="container-points">
+            <div class="points-display">
+                <i class="fa-solid fa-star"></i>
+                <span id="pointsCounter">500</span>
+            </div>
+        </div>
+
+        <div class="container-event">
+            <button id="armario">
+                <i class="fa-solid fa-shirt"></i>
+            </button>
+        </div>
+
+        <div class="container-event">
+            <button>
+                <i class="fa-solid fa-shop"></i>
+            </button>
+        </div>
+
+        <div class="container-event">
+            <button>
+                <i class="fa-solid fa-gamepad"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="container">
+        <div class="menu ocultar" id="dropdownMenu">
+            <ul>
+                <li>
+                    <button>
+                        <i class="fa-solid fa-book"></i>
+                        Manual de Usuario
+                    </button>
+                </li>
+
+                <li>
+                    <button>
+                        <i class="fa-solid fa-book"></i>
+                        Manual de la caneca
+                    </button>
+                </li>
+
+                <li>
+                    <a href="/logout" style="text-decoration: none; color: inherit;">
+                        <button>
+                            <i class="fa-solid fa-right-to-bracket"></i>
+                            Cerrar Sesión
+                        </button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="logo-ecogame">
+            <figure>
+                <img src="../static/Img/logo.png" alt="logo" class="logo">
+            </figure>
+        </div>
+
+        <div class="fondo">
+            <figure>
+                <img src="../static/Img/imagenlasdrillo.png" alt="ladrillos" class="ladrillos">
+            </figure>
+        </div>
+
+        <div class="figura">
+            <figure>
+                <img src="../static/Img/figura.png" alt="figura" class="figuraone">
+            </figure>
+        </div>
+
+        <div class="boton">
+            <a href="/juego">
+                <button id="playButton">
+                    <i class="fa-solid fa-play"></i>
+                    Jugar
+                </button>
+            </a>
+        </div>
+
+    </section>
+</main>
+
+    <script src="{{url_for('static', filename='Js/aparecer.js')}}"></script>
+    <script src="{{url_for('static', filename='Js/shop-modal.js')}}"></script>
+    <script src="{{url_for('static', filename='Js/game-modal.js')}}"></script>
+    <script src="{{url_for('static', filename='Js/inventory-modal.js')}}"></script>
+{% endblock %}

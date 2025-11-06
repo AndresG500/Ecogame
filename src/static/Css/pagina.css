@@ -1,0 +1,240 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.container-header {
+  width: 100%;
+  background: #047170;
+  height: 60px;
+  padding: 8px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.container-user {
+  width: auto;
+  height: auto;
+}
+
+.container-user button {
+  border: none;
+  outline: none;
+  border: 2px solid rgba(139, 69, 19, 0.2);
+  width: 100px;
+  background-color: white;
+  height: 30px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #047170;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.container-user button:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-1px);
+}
+
+.container-event {
+  display: flex;
+  gap: 60px;
+}
+
+.container-event button {
+  border: none;
+  outline: none;
+  border: 2px solid rgba(139, 69, 19, 0.2);
+  width: 40px;
+  background-color: white;
+  height: 30px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #047170;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.container-event button:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-1px);
+}
+
+.container-points{
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.points-display{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: white;
+  padding: 6px 15px;
+  border-radius: 5px;
+  border: 2px solid rgba(139, 69, 19, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 30px;
+}
+
+.points-display:hover {
+  transform: scale(1.05);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.points-display i {
+  color: #047170;
+  font-size: 16px;
+  animation: pulse 2s infinite;
+}
+
+.container {
+  width: 100%;
+  min-height: 91vh;
+  max-width: 1500px;
+  margin: 0 auto;
+  position: relative;
+  background-color: #f7fbfc;
+  overflow: hidden;
+}
+
+.logo-ecogame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.logo {
+  width: 350px;
+  height: 150px;
+}
+
+.menu {
+  width: 170px;
+  height: 150px;
+  border: 2px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 13px;
+  z-index: 1;
+  position: absolute;
+  border-radius: 5px;
+  border: 2px solid rgba(139, 69, 19, 0.2);
+  background-color: white;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  margin-top: 10px;
+}
+
+.menu li {
+  list-style: none;
+}
+
+.menu button {
+  border: none;
+  outline: none;
+  width: 140px;
+  height: 30px;
+  margin: 6px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  font-size: 10px;
+  background-color: #047170;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.menu button:hover {
+  background-color: #035a59;
+  transform: translateY(-1px);
+}
+
+.ocultar {
+  display: none;
+}
+
+.fondo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  top: 140px;
+  left: 0;
+  right: 0;
+}
+
+.ladrillos {
+  width: 400px;
+  height: 400px;
+}
+
+.figura {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  top: 140px;
+  left: 15px;
+  right: 0;
+}
+
+.figuraone {
+  width: 400px;
+  height: 400px;
+  z-index: 1;
+}
+
+.boton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  top: 530px;
+  left: 0;
+  right: 0;
+}
+
+.boton button {
+  border: none;
+  outline: none;
+  border: 2px solid rgba(139, 69, 19, 0.2);
+  width: 150px;
+  height: 40px;
+  background-color: #047170;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.boton button:hover {
+  background-color: #035a59;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.boton button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.boton button i {
+  margin-right: 8px;
+}

@@ -1,0 +1,521 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.container-header {
+    width: 100%;
+    background: #047170;
+    height: 60px;
+    padding: 8px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    z-index: 100;
+}
+
+.container-back button {
+    border: none;
+    outline: none;
+    border: 2px solid rgba(139, 69, 19, 0.2);
+    width: 100px;
+    background-color: white;
+    height: 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #047170;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.container-back button:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-1px);
+}
+
+.container-back a {
+    text-decoration: none;
+}
+
+.container-points, .container-lives {
+    display: flex;
+    align-items: center;
+}
+
+.points-display, .lives-display {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: white;
+    padding: 6px 15px;
+    border-radius: 5px;
+    border: 2px solid rgba(139, 69, 19, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 30px;
+}
+
+.points-display:hover, .lives-display:hover {
+    transform: scale(1.05);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.points-display i {
+    color: #047170;
+    font-size: 16px;
+}
+
+.lives-display i {
+    color: #ff4757;
+    font-size: 16px;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(1); }
+}
+
+.points-display span, .lives-display span {
+    color: #047170;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
+
+.imagen {
+    width: 85vw;
+    height: calc(100vh - 60px);
+    object-fit: cover;
+    display: block;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    z-index: -1;
+}
+
+.contenedor {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    min-height: calc(100vh - 60px);
+    padding-top: 20px;
+}
+
+/* ============================================
+   INFORMACIÓN DEL JUEGO
+   ============================================ */
+
+.game-info {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.session-points {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 3px 10px rgba(255, 215, 0, 0.3);
+}
+
+.session-points i {
+    font-size: 18px;
+}
+
+/* ============================================
+   BOTÓN REINICIAR
+   ============================================ */
+
+.reiniciar {
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 10;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(76, 175, 80, 0.3);
+}
+
+.reiniciar:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.5);
+}
+
+.reiniciar:active {
+    transform: scale(0.98);
+}
+
+/* ============================================
+   TABLERO
+   ============================================ */
+
+.tablero {
+    position: fixed;
+    top: 50%;
+    left: 57%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 110px);
+    gap: 10px;
+    z-index: 2;
+    background: none;
+}
+
+.casilla {
+    width: 100px;
+    height: 110px;
+    cursor: pointer;
+    z-index: 3;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: all 0.2s ease;
+}
+
+.casilla:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.casilla:disabled {
+    cursor: default;
+    opacity: 5;
+}
+
+.ficha-btn {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    pointer-events: none;
+    animation: aparecer 0.3s ease;
+    position: relative;
+    top: 20px;
+}
+
+@keyframes aparecer {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.fichas {
+    display: none;
+}
+
+/* ============================================
+   MODAL DE RESULTADO
+   ============================================ */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.7);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-contenido {
+    background: #fff;
+    margin: 15% auto;
+    padding: 40px 30px;
+    border-radius: 15px;
+    width: 350px;
+    text-align: center;
+    position: relative;
+    animation: slideIn 0.3s ease;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.cerrar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.3s ease;
+}
+
+.cerrar:hover {
+    color: #333;
+}
+
+#icono-resultado {
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+#texto-modal {
+    font-size: 24px;
+    font-weight: bold;
+    color: #047170;
+    margin: 0;
+}
+
+/* ============================================
+   ANIMACIÓN DE PUNTOS
+   ============================================ */
+
+.points-animation {
+    position: fixed;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    z-index: 10000;
+    animation: slideDown 2s ease forwards;
+    box-shadow: 0 5px 20px rgba(76, 175, 80, 0.5);
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-50px);
+    }
+    20% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    80% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+}
+
+/* ============================================
+   MODAL DE GAME OVER
+   ============================================ */
+
+.game-over-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.game-over-content {
+    background-color: white;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    animation: slideIn 0.3s ease;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.game-over-icon {
+    font-size: 80px;
+    color: #ff4757;
+    margin-bottom: 20px;
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+.game-over-content h2 {
+    color: #047170;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.game-over-content > p {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.final-stats {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    color: white;
+}
+
+.final-stats p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.final-stats h3 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.game-over-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.game-over-buttons button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-play-again {
+    background-color: #4caf50;
+    color: white;
+}
+
+.btn-play-again:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.btn-go-home {
+    background-color: #047170;
+    color: white;
+}
+
+.btn-go-home:hover {
+    background-color: #035a59;
+    transform: scale(1.05);
+}
+
+.game-over-buttons a {
+    text-decoration: none;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .imagen {
+        width: 100vw;
+    }
+
+    .tablero {
+        left: 50%;
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 90px);
+        gap: 8px;
+    }
+
+    .casilla {
+        width: 80px;
+        height: 90px;
+    }
+
+    .ficha-btn {
+        width: 70px;
+        height: 70px;
+    }
+
+    .reiniciar {
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .container-header {
+        gap: 8px;
+        padding: 8px 10px;
+    }
+
+    .container-back button {
+        width: 80px;
+        font-size: 12px;
+    }
+
+    .game-over-content {
+        padding: 30px 20px;
+    }
+}

@@ -1,0 +1,107 @@
+{% extends './about.html' %}
+
+{% block title %} Tres en Raya {% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{url_for('static', filename='Css/juego3.css')}}">
+{% endblock %}
+
+{% block content %}
+
+<header>
+    <div class="container-header">
+        <div class="container-back">
+            <a href="/ecogame">
+                <button id="backButton">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Volver
+                </button>
+            </a>
+        </div>
+
+        <div class="container-points">
+            <div class="points-display">
+                <i class="fa-solid fa-star"></i>
+                <span id="pointsCounter">0</span>
+            </div>
+        </div>
+
+        <div class="container-lives">
+            <div class="lives-display">
+                <i class="fa-solid fa-heart"></i>
+                <span id="livesCounter">3</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="contenedor">
+    <img src="../static/Img/Diseño1.png" alt="juego tres en línea" class="imagen">
+    
+    <div class="game-info">
+        <div class="session-points">
+            <i class="fa-solid fa-trophy"></i>
+            <span>Sesión: <strong id="sessionPoints">0</strong> pts</span>
+        </div>
+    </div>
+
+    <button class="reiniciar" onclick="reiniciarJuego()">
+        <i class="fa-solid fa-rotate-right"></i>
+        Reiniciar
+    </button>
+
+    <div class="fichas">
+        <img src="../static/Img/fichao.png" alt="ficha O">
+        <img src="../static/Img/fichax.png" alt="ficha X">
+    </div>
+
+    <div class="tablero">
+        <button class="casilla cs1" id="1" onclick="marcarCelda(1)"></button>
+        <button class="casilla cs2" id="2" onclick="marcarCelda(2)"></button>
+        <button class="casilla cs3" id="3" onclick="marcarCelda(3)"></button>
+        <button class="casilla cs4" id="4" onclick="marcarCelda(4)"></button>
+        <button class="casilla cs5" id="5" onclick="marcarCelda(5)"></button>
+        <button class="casilla cs6" id="6" onclick="marcarCelda(6)"></button>
+        <button class="casilla cs7" id="7" onclick="marcarCelda(7)"></button>
+        <button class="casilla cs8" id="8" onclick="marcarCelda(8)"></button>
+        <button class="casilla cs9" id="9" onclick="marcarCelda(9)"></button>   
+    </div>
+
+    <!-- Modal de resultado de partida -->
+    <div id="modal-mensaje" class="modal">
+        <div class="modal-contenido">
+            <span id="cerrar-modal" class="cerrar">&times;</span>
+            <div id="icono-resultado"></div>
+            <p id="texto-modal"></p>
+        </div>
+    </div>
+
+    <!-- Modal de Game Over -->
+    <div id="gameOverModal" class="game-over-modal">
+        <div class="game-over-content">
+            <i class="fa-solid fa-heart-crack game-over-icon"></i>
+            <h2>¡Game Over!</h2>
+            <p>Has perdido todos tus intentos</p>
+            <div class="final-stats">
+                <p>Puntos ganados en esta sesión:</p>
+                <h3 id="finalSessionPoints">0</h3>
+            </div>
+            <div class="game-over-buttons">
+                <button id="playAgainBtn" class="btn-play-again">
+                    <i class="fa-solid fa-rotate-right"></i>
+                    Jugar de nuevo
+                </button>
+                <a href="/ecogame">
+                    <button class="btn-go-home">
+                        <i class="fa-solid fa-house"></i>
+                        Ir al inicio
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{url_for('static', filename='Js/juego3.js')}}"></script>
+    
+{% endblock %}
